@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-50 text-ink-900 font-sans antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl font-semibold transition-all duration-200 active:scale-[0.97] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-primary-600 text-white px-5 py-3 shadow-soft hover:bg-primary-700 hover:shadow-glow;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-ink-800 px-5 py-3 ring-1 ring-ink-200 hover:bg-ink-50 hover:ring-ink-300;
+  }
+  .btn-ghost {
+    @apply btn text-ink-600 px-4 py-2.5 hover:bg-ink-100 hover:text-ink-900;
+  }
+  .card {
+    @apply rounded-3xl bg-white shadow-card ring-1 ring-ink-100;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+  }
+  .input {
+    @apply w-full rounded-2xl border-0 bg-ink-100 px-4 py-3.5 text-ink-900 placeholder:text-ink-400 ring-1 ring-inset ring-transparent transition focus:bg-white focus:ring-2 focus:ring-primary-500 focus:outline-none;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-ink-700;
+  }
+  .section-title {
+    @apply font-display text-xl font-bold text-ink-900;
+  }
+}
+
+/* hide scrollbar but allow scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* card flip */
+.flip-card { perspective: 1200px; }
+.flip-inner { transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+.flip-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-back { transform: rotateY(180deg); }
+
+/* grid pattern background */
+.bg-grid {
+  background-image: linear-gradient(to right, rgba(15,23,42,0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(15,23,42,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}

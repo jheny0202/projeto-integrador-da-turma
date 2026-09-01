@@ -1,0 +1,2 @@
+[functions.dev-admin]
+verify_jwt = false
